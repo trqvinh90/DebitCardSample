@@ -6,7 +6,7 @@ This is a sample app to help user can manage their own cards.
 By setting a weekly limitation, user can well manage their money. (**Weekly** means 7 days not the week's calendar)  
 There are some rules:  
 - Whenever a new value is set, it will immediately take effect at the current day.  
-- The used amount will be reset in tomorrow at 0 AM.  
+- The used amount will be reset in tomorrow at 0 AM and of course it will be affected by the latest rule.  
 - User can switch on/off this setting.
 
 # How to run the project
