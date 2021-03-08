@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import IconLimit from './icon_limit.svg';
 import { CustomButton, DisplayAmount } from '../../../components';
@@ -11,10 +11,11 @@ import Store from '../store';
 
 const WeeklyLimitation = () => {
   const { goBack } = useNavigation();
+  const insets = useSafeAreaInsets();
   const [limitAmount, setLimitAmount] = React.useState(Store.weeklyLimit);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, {paddingTop: insets.top}]}>
       <View style={styles.settingContainer}>
         <View style={styles.rowContainer}>
           <IconLimit />
@@ -43,7 +44,7 @@ const WeeklyLimitation = () => {
           }}
           containerStyle={{ marginHorizontal: 33 }} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

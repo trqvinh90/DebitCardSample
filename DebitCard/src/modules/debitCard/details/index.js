@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
 
 import Store from '../store';
@@ -11,12 +11,14 @@ import TotalSpent from './totalSpent';
 import styles from './style';
 
 const CardDetails = () => {
+  const insets = useSafeAreaInsets();
+
   React.useEffect(() => {
     Store.getCardDetails();
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, {paddingTop: insets.top}]}>
       <View style={{ flex: 1 }}>
         <Balance />
         <View style={{ flex: 1 }}>
@@ -36,7 +38,7 @@ const CardDetails = () => {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
